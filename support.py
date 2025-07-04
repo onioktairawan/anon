@@ -12,7 +12,7 @@ from datetime import datetime
 load_dotenv()
 
 # --- ENV CONFIG ---
-BOT_TOKEN = os.getenv("BOT_TOKEN")
+BOT_TOKEN1 = os.getenv("BOT_TOKEN1")
 OWNER_ID = int(os.getenv("OWNER_ID"))
 MONGO_URI = os.getenv("MONGO_URI")
 
@@ -143,7 +143,7 @@ async def inbox(update: Update, context: CallbackContext):
         await update.message.reply_text(text, parse_mode="Markdown", reply_markup=reply_markup(msg['user_id']))
 
 async def start_support_bot():
-    app = ApplicationBuilder().token(BOT_TOKEN).build()
+    app = ApplicationBuilder().token(BOT_TOKEN1).build()
 
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("inbox", inbox))
